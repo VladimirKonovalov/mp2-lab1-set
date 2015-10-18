@@ -111,9 +111,9 @@ TEST(TBitField, can_assign_bitfields_of_equal_size)
   EXPECT_NE(0, bf2.GetBit(1));
 }
 
-TEST(TBitField, assign_operator_changes_bitfield_size)
+TEST(TBitField, assign_operator_changes_bitfield_size) 
 {
-  const int size1 = 2, size2 = 5;
+  const int size1 = 2, size2 = 5;						
   TBitField bf1(size1), bf2(size2);
   for (int i = 0; i < size1; i++)
   {
@@ -124,7 +124,7 @@ TEST(TBitField, assign_operator_changes_bitfield_size)
   EXPECT_EQ(2, bf2.GetLength());
 }
 
-TEST(TBitField, can_assign_bitfields_of_non_equal_size)
+TEST(TBitField, can_assign_bitfields_of_non_equal_size)  //////////////////////
 {
   const int size1 = 2, size2 = 5;
   TBitField bf1(size1), bf2(size2);
