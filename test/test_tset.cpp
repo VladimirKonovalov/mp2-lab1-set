@@ -177,7 +177,7 @@ TEST(TSet, check_size_of_the_combination_of_two_sets_of_equal_size)
 
 TEST(TSet, can_combine_two_sets_of_equal_size)
 {
-  const int size = 5;
+  const int size = 40;
   TSet set1(size), set2(size), set3(size), expSet(size);
   // set1 = {1, 2, 4}
   set1.InsElem(1);
@@ -283,7 +283,7 @@ TEST(TSet, can_intersect_two_sets_of_non_equal_size)
 
 TEST(TSet, check_negation_operator)
 {
-  const int size = 4;
+  const int size = 40;
   TSet set(size), set1(size), expSet(size);
   // set1 = {1, 3}
   set.InsElem(1);
@@ -292,6 +292,7 @@ TEST(TSet, check_negation_operator)
   // expSet = {0, 2}
   expSet.InsElem(0);
   expSet.InsElem(2);
-
+  for(int i = 4; i < 40; i++)
+	  expSet.InsElem(i);
   EXPECT_EQ(expSet, set1);
 }

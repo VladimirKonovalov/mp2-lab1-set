@@ -199,8 +199,9 @@ TBitField TBitField::operator~(void) // отрицание
 	for (int i = 0; i < MemLen-1; i++)    /// memlen обработать отдельно
 		temp.pMem[i] = ~pMem[i];
 	temp.pMem[MemLen-1] = 0;
+	int bitInd = (MemLen-1) * sizeof(TELEM);
 	for (int i = 0; i < BitLen % sizeof(TELEM); i++)
-		temp.pMem[MemLen-1] ;//temp.GetMemMask(Mem  ///
+		(GetBit(bitInd + i) == 0 ? temp.SetBit(bitInd + i) : temp.ClrBit(bitInd + i));
 	return temp;
 }
 

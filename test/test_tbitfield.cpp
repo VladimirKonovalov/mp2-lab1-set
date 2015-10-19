@@ -232,7 +232,6 @@ TEST(TBitField, can_invert_bitfield)
   // bf = 01
   bf.SetBit(1);
   negBf = ~bf;
-
   // expNegBf = 10
   expNegBf.SetBit(0);
 
@@ -292,3 +291,4 @@ TEST(TBitField, bitfields_with_different_bits_are_not_equal)
 
   EXPECT_NE(bf1, bf2);
 }
+

@@ -104,7 +104,9 @@ TSet TSet::operator*(const TSet &s) // пересечение
 
 TSet TSet::operator~(void) // дополнение
 {
-	TSet temp(~BitField);
+	TSet temp(BitField);
+	for (int i = 0; i < temp.GetMaxPower(); i++)
+		(temp.IsMember(i) == 1 ? temp.DelElem(i) : temp.InsElem(i));
 	return temp;
 }
 
