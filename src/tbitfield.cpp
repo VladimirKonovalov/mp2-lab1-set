@@ -12,7 +12,7 @@ TBitField::TBitField(int len)
 	if (len < 0) throw "Negative len";
 
 	BitLen = len;
-	MemLen = len / sizeof(TELEM) + 1;
+	MemLen = len / sizeof(TELEM) + 1 * (len % sizeof(TELEM) > 0 ? 1 : 0);
 	pMem = new TELEM[MemLen];
 	for (int i = 0; i < MemLen; i++)
 	{
@@ -196,8 +196,11 @@ TBitField TBitField::operator&(const TBitField &bf) // операция "и"
 TBitField TBitField::operator~(void) // отрицание
 {
 	TBitField temp(BitLen);
-	for (int i = 0; i < MemLen; i++)
+	for (int i = 0; i < MemLen-1; i++)    /// memlen обработать отдельно
 		temp.pMem[i] = ~pMem[i];
+	temp.pMem[MemLen-1] = 0;
+	for (int i = 0; i < BitLen % sizeof(TELEM); i++)
+		temp.pMem[MemLen-1] ;//temp.GetMemMask(Mem  ///
 	return temp;
 }
 
